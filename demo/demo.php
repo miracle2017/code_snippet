@@ -1,8 +1,25 @@
 <?php
 
+
+$str = <<<eof
+<div>好的</div>
+<div class="kk">
+    <div>
+        <div class="tt">中文</div>
+    </div>
+    <p>what</p>
+</div>
+<div>下面</div>
+eof;
+
+
+//array_splice($input, $offset, $length, $replacement);
+preg_match($pattern, $replacement, $subject);
+$re = html_splice('/<p>/', $str, "是否");
+var_dump($re);
+
 /**
  * 提取正则匹配到的html的dom元素,或替换得到新html
- * 举个栗子: 如获取class为center的div的dom元素: html_splice('/<div class="center"/', $str);
  * @param string $pattern '正则表达式: 请以html标签开头如`<span`'
  * @param string $str 'html: 请确保html标签都有闭合,否则匹配结果无法保证'
  * @param string $replacement '可选,不指定(默认)则返回匹配到的html;指定时,则返回将匹配的html换为$replacement的新$str
@@ -46,5 +63,4 @@ function html_splice($pattern, $str, $replacement = null)
         return substr($str, 0, $start) . $replacement . substr($str, $end);
     }
 }
-
 
