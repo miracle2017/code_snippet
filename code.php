@@ -47,4 +47,16 @@ function html_splice($pattern, $str, $replacement = null)
     }
 }
 
+/*
+ * 判断两个日期是否在为同一周
+ * @param $date1 '日期:如果2022-01-01 12:00:00'
+ * @param $date2
+ * @return bool
+ */
+public static function isInSameWeek($date1, $date2)
+{
+    //判断下strtotime($date)是否正常解析,没有返回false.
+    //oW返回年的第几周:比如202201
+    return strtotime($date1) && date("oW", strtotime($date1)) === date("oW", strtotime($date2));
+}
 
