@@ -60,3 +60,15 @@ public static function isInSameWeek($date1, $date2)
     return strtotime($date1) && date("oW", strtotime($date1)) === date("oW", strtotime($date2));
 }
 
+/**
+ * 获取一个数字中的小数位数
+ * @param $number
+ * @return int
+ */
+function getNumberOfDecimalDigits($number): int
+{
+    if (!is_numeric($number)) {
+        return 0;
+    }
+    return strlen(substr(strrchr($number, "."), 1));
+}
